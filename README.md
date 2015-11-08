@@ -1,6 +1,6 @@
 # jekyll-related-posts
 
-Proper related posts plugin for Jekyll - uses document correlation
+Proper related posts plugin for [Jekyll](http://jekyllrb.com) - uses document correlation
 matrix on TF-IDF (optionally with Latent Semantic Indexing).
 
 # Example
