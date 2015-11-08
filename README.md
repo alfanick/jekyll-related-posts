@@ -86,7 +86,7 @@ Unfortunately the plugin is not compatible with Jekyll 3.0 new
 incremental builds, even though it requires at least Jekyll 3.0 (for the
 plugin hooks).
 
-For causal blogs performance should not be an issue.
+For causal blogs, performance should not be an issue.
 
 ## Authors
 
