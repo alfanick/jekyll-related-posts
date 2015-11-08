@@ -77,7 +77,7 @@ that the word occured twice as much in the document as in reality.
 I did not benchmark the plugin, however for the dataset given in the
 example (containing ~900 documents, ~7000 keywords) rendering time
 (including Jekyll hoodoo stuff) is more less 70 seconds (on Xeon, using
-750MB RAM). Computations related to this plugin is about 20 seconds
+750MB RAM). Computation related to this plugin is about 20 seconds
 long. It should be noticed that I'm using OpenBLAS and standard LAPACK
 distributed with Ubuntu (performance is similar on OS X using builtin
 Acccelerate framework).
