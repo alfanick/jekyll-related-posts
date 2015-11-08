@@ -5,7 +5,7 @@ matrix on TF-IDF (optionally with Latent Semantic Indexing).
 
 # Example
 
-Example is provided at http://jekyll-lsi.dev.amadeusz.me - posts are
+Example is provided at http://jekyll-related-posts.dev.amadeusz.me - posts are
 based on
 [Reuters-21578](https://archive.ics.uci.edu/ml/datasets/Reuters-21578+Text+Categorization+Collection)
 data set.
