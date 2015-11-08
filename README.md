@@ -22,8 +22,8 @@ and [LSI](https://en.wikipedia.org/wiki/Latent_semantic_indexing).
 
 ## How to install
 
-I am new to Jekyll -- I will try to make installation process easier,
-but for now it goes as follows:
+I am new to Jekyll - I will try to make installation process easier (I
+guess I can create gem for the plugin), but for now it goes as follows:
 
 1. Download this repository.
 2. Copy `Gemfile` to your site root directory and run `bundle install`
@@ -37,7 +37,7 @@ your needs.
 
 ## Basis of operation
 
-Each of document is
+Each document is
 [tokenized](https://en.wikipedia.org/wiki/Tokenization_(lexical_analysis))
 and [stemmed](https://en.wikipedia.org/wiki/Stemming), every word found
 is treated as keyword for analysis (except for some [stop
@@ -48,7 +48,7 @@ weights), then if given accuraccy is lower than 1.0, LSI algorithm
 is used to compute new simplified vector space. Document correlation 
 matrix is created using dot product of the matrix and its transpose.
 
-For each of the post related documents are inserted into priority queue
+For each of the post' related documents are inserted into priority queue
 (sorted by score from document correlation matrix), assuming the score
 is greater than minimal required score. Selected few bests related posts
 are retrieven from the queue.
