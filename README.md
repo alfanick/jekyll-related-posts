@@ -3,7 +3,7 @@
 Proper related posts plugin for [Jekyll](http://jekyllrb.com) - uses document correlation
 matrix on TF-IDF (optionally with Latent Semantic Indexing).
 
-# Example
+## Example
 
 Example is provided at http://jekyll-related-posts.dev.amadeusz.me - posts are
 based on
