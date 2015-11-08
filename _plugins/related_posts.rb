@@ -128,9 +128,9 @@ class RelatedPosts
     result = NMatrix.new([@posts.size, @keywords.size], 0.0)
 
     bag_of_words.each_row do |row|
-      max = row.max()
+      max = row.max(1)[0]
       row.each_with_index do |value, ki|
-        result[row.offset[0], ki] = @posts[row.offset[0]][:content].count(@keywords[ki]) * @weights[ki]
+        result[row.offset[0], ki] = (value * @weights[ki]) / max
       end
     end
 
