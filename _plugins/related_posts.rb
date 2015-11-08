@@ -116,63 +116,65 @@ class RelatedPosts
 
   def bag_of_words
     result = NMatrix.new([@posts.size, @keywords.size], 0.0)
+    @max = NMatrix.new([@posts.size], 0.0)
 
     result.each_with_indices do |_, pi, ki|
       result[pi, ki] = @posts[pi][:content].count(@keywords[ki])
+
+      if result[pi, ki] > @max[pi]
+        @max[pi] = result[pi, ki]
+      end
     end
 
+    @bag_of_words = result.dup
     return result
   end
 
   def term_frequency
-    result = NMatrix.new([@posts.size, @keywords.size], 0.0)
+    result = bag_of_words
 
-    bag_of_words.each_row do |row|
-      max = row.max(1)[0]
-      row.each_with_index do |value, ki|
-        result[row.offset[0], ki] = (value * @weights[ki]) / max
-      end
+    result.rows.times do |r|
+      result[r, 0..-1] *= @weights
+      result[r, 0..-1] /= @max[r]
     end
 
     return result
   end
 
   def keywords_weights(weights)
-    result = NMatrix.new([@keywords.size], 1.0)
+    result = NMatrix.new([1, @keywords.size], 1.0)
 
     weights.each do |word, weight|
       keyword = word.to_s.stem.to_sym
 
       next unless @keywords.include? keyword
 
-      result[@keywords.index(keyword)] = weight
+      result[0, @keywords.index(keyword)] = weight
     end
 
     return result
   end
 
   def inverse_document_frequency
-    result = NMatrix.new([@keywords.size], 0.0)
+    result = NMatrix.new([1, @keywords.size], 0.0)
 
-    bag_of_words.each_column do |column|
+    @bag_of_words.each_column do |column|
       occurences = column.reduce do |m, c|
         m + (c > 0 ? 1.0 : 0.0)
       end
 
-      result[column.offset[1]] = Math.log(column.size / occurences) if occurences > 0
+      result[0, column.offset[1]] = Math.log(column.size / occurences) if occurences > 0
     end
 
     return result
   end
 
   def tfidf
-    tf = term_frequency
+    result = term_frequency
     idf = inverse_document_frequency
 
-    result = NMatrix.new([@posts.size, @keywords.size], 0.0)
-
-    result.each_with_indices do |_, pi, ki|
-      result[pi, ki] = tf[pi, ki] * idf[ki]
+    result.rows.times do |r|
+      result[r, 0..-1] *= idf
     end
 
     return result
