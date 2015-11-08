@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'jekyll', '>= 3.0'
+gem 'kramdown'
+gem 'tokenizer'
+gem 'stopwords-filter'
+gem 'fast-stemmer'
+gem 'ruby-lapack'
+gem 'pqueue'
+gem 'nmatrix'
+gem 'nmatrix-lapacke'
