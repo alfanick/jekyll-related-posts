@@ -56,6 +56,22 @@ are retrieven from the queue.
 Liquid template for each post is rendered and `<related-posts />` is
 replaced with the outcomes of algorithm.
 
+## Configuration
+
+In your `_config.yml` file (under `related:`) you can configure:
+
+- `max_count: 5` - maximum number of related posts,
+- `min_score: 0.1` - minimal required score to treat post as related,
+- `accuracy: 0.75` - percentage of keywords used as basis for document
+    correlation matrix (if 1.0 then no LSI is computed, otherwise LSI is
+    computed and dimensions are reduced to `accuracy * |keywords|`)
+
+### Weights
+
+You can configure weights of words providing dictionary with them to
+`weights`. In example weight of `2` means for term frequency algorithm 
+that the word occured twice as much in the document as in reality.
+
 ## Benchmark
 
 I did not benchmark the plugin, however for the dataset given in the
@@ -69,6 +85,8 @@ Acccelerate framework).
 Unfortunately the plugin is not compatible with Jekyll 3.0 new
 incremental builds, even though it requires at least Jekyll 3.0 (for the
 plugin hooks).
+
+For causal blogs performance should not be an issue.
 
 ## Authors
 
