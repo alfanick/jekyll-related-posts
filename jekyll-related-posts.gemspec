@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-related-posts"
-  spec.version       = "0.1.0"
+  spec.version       = "0.1.1"
   spec.authors       = ["Amadeusz Juskowiak"]
   spec.email         = ["juskowiak@amadeusz.me"]
   spec.summary       = %q{Proper related posts plugin for Jekyll - uses document correlation matrix on TF-IDF (optionally with Latent Semantic Indexing).}
