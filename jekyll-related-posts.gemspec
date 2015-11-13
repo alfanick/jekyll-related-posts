@@ -8,7 +8,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Amadeusz Juskowiak"]
   spec.email         = ["juskowiak@amadeusz.me"]
   spec.summary       = %q{Proper related posts plugin for Jekyll - uses document correlation matrix on TF-IDF (optionally with Latent Semantic Indexing).}
-  spec.description   = %q{Each document is tokenized and stemmed, every word found is treated as keyword for analysis (except for some stop words).
+  spec.description   = %q{Proper related posts plugin for Jekyll - uses document correlation matrix on TF-IDF (optionally with Latent Semantic Indexing).
+
+Each document is tokenized and stemmed, every word found is treated as keyword for analysis (except for some stop words).
 
 TF-IDF matrix for the whole site is calculated (including extra provided weights), then if given accuraccy is lower than 1.0, LSI algorithm is used to compute new simplified vector space. Document correlation matrix is created using dot product of the matrix and its transpose.
 

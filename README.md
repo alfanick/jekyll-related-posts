@@ -22,13 +22,14 @@ and [LSI](https://en.wikipedia.org/wiki/Latent_semantic_indexing).
 Initialy you had to install the plugin manually, however the plugin is a
 gem now - follow instructions to install the plugin:
 
-1. Install the gem `jekyll-related-posts`
+1. Install the gem `jekyll-related-posts`:
   - if you are using bundler add `gem 'jekyll-related-posts'` to your
-    `Gemfile` and run `bundle install`
-  - or install gem via `gem install jekyll-related-posts`
-2. Insert `<related-posts />` somewhere in your `_layouts/post.html`
+    `Gemfile` and run `bundle install`,
+  - or install gem via `gem install jekyll-related-posts`.
+2. Insert `gems: ['jekyll-related-posts']` to your `_config.yml`.
+3. Insert `<related-posts />` somewhere in your `_layouts/post.html`
 file.
-3. Run `jekyll build`, don't forget to blog about the plugin!
+4. Run `jekyll build`, don't forget to blog about the plugin!
 
 ### Customization
 
