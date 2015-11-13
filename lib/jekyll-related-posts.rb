@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'jekyll'
 require 'singleton'
 require 'tokenizer'
 require 'yaml'
