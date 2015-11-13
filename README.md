@@ -1,14 +1,11 @@
 # jekyll-related-posts
 
-Proper related posts plugin for [Jekyll](http://jekyllrb.com) - uses document correlation
-matrix on TF-IDF (optionally with Latent Semantic Indexing).
+Proper related posts plugin for [Jekyll](http://jekyllrb.com) - uses document correlation matrix on TF-IDF (optionally with Latent Semantic Indexing).
 
 ## Example
 
 Example is provided at http://jekyll-related-posts.dev.amadeusz.me - posts are
-based on
-[Reuters-21578](https://archive.ics.uci.edu/ml/datasets/Reuters-21578+Text+Categorization+Collection)
-data set.
+based on [Reuters-21578](https://archive.ics.uci.edu/ml/datasets/Reuters-21578+Text+Categorization+Collection) data set.
 
 ## Introduction
 
@@ -22,18 +19,22 @@ and [LSI](https://en.wikipedia.org/wiki/Latent_semantic_indexing).
 
 ## How to install
 
-I am new to Jekyll - I will try to make installation process easier (I
-guess I can create gem for the plugin), but for now it goes as follows:
+Initialy you had to install the plugin manually, however the plugin is a
+gem now - follow instructions to install the plugin:
 
-1. Download this repository.
-2. Copy `Gemfile` to your site root directory and run `bundle install`
-(it requires lapack libs for linear algebra).
-3. Copy `_layouts/related.html` and modify to your needs.
-4. Insert `<related-posts />` somewhere in your `_layouts/post.html`
+1. Install the gem `jekyll-related-posts`
+  - if you are using bundler add `gem 'jekyll-related-posts'` to your
+    `Gemfile` and run `bundle install`
+  - or install gem via `gem install jekyll-related-posts`
+2. Insert `<related-posts />` somewhere in your `_layouts/post.html`
 file.
-5. Append content of `_config.yml` to your config and customize it to
-your needs.
-6. Run `jekyll build`, don't forget to blog about the plugin!
+3. Run `jekyll build`, don't forget to blog about the plugin!
+
+### Customization
+
+You can customize default related posts template by creating
+`related.html` in your layouts directory. Plugin behaviour can be
+altered by options in `_config.yml`, under `related:` section.
 
 ## Basis of operation
 
@@ -74,6 +75,8 @@ that the word occured twice as much in the document as in reality.
 
 ## Benchmark
 
+For casual blogs, performance should not be an issue.
+
 I did not benchmark the plugin, however for the dataset given in the
 example (containing ~900 documents, ~7000 keywords) rendering time
 (including Jekyll hoodoo stuff) is more less 70 seconds (on Xeon, using
@@ -85,8 +88,6 @@ Acccelerate framework).
 Unfortunately the plugin is not compatible with Jekyll 3.0 new
 incremental builds, even though it requires at least Jekyll 3.0 (for the
 plugin hooks).
-
-For causal blogs, performance should not be an issue.
 
 ## Authors
 

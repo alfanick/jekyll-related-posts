@@ -10,6 +10,7 @@ require 'pqueue'
 require 'nmatrix'
 require 'nmatrix/lapacke'
 
+module Amadeusz
 module Jekyll
   class RelatedPosts
     include Singleton
@@ -208,11 +209,12 @@ module Jekyll
     end
   end
 end
+end
 
 Jekyll::Hooks.register :posts, :pre_render do |post|
-  Jekyll::RelatedPosts.instance.add_post(post)
+  Amadeusz::Jekyll::RelatedPosts.instance.add_post(post)
 end
 
 Jekyll::Hooks.register :site, :post_write do |site|
-  Jekyll::RelatedPosts.instance.build! site
+  Amadeusz::Jekyll::RelatedPosts.instance.build! site
 end

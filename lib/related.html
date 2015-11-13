@@ -1,4 +1,6 @@
+{% if related_posts != empty %}
 <div id="related-posts">
+  <h3>Related posts</h3>
   <ul>
     {% for p in related_posts %}
       <li>
@@ -7,3 +9,4 @@
     {% endfor %}
   </ul>
 </div>
+{% endif %}
