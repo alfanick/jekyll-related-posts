@@ -5,12 +5,18 @@ require 'jekyll/related/posts/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-related-posts"
-  spec.version       = Jekyll::Related::Posts::VERSION
+  spec.version       = "0.1.0"
   spec.authors       = ["Amadeusz Juskowiak"]
-  spec.email         = ["amadeusz@amanointeractive.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
-  spec.homepage      = ""
+  spec.email         = ["juskowiak@amadeusz.me"]
+  spec.summary       = %q{Proper related posts plugin for Jekyll - uses document correlation matrix on TF-IDF (optionally with Latent Semantic Indexing).}
+  spec.description   = %q{Each document is tokenized and stemmed, every word found is treated as keyword for analysis (except for some stop words).
+
+TF-IDF matrix for the whole site is calculated (including extra provided weights), then if given accuraccy is lower than 1.0, LSI algorithm is used to compute new simplified vector space. Document correlation matrix is created using dot product of the matrix and its transpose.
+
+For each of the post' related documents are inserted into priority queue (sorted by score from document correlation matrix), assuming the score is greater than minimal required score. Selected few bests related posts are retrieven from the queue.
+
+Liquid template for each post is rendered and <related-posts /> is replaced with the outcomes of algorithm.}
+  spec.homepage      = "https://github.com/alfanick/jekyll-related-posts"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -20,4 +26,13 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake"
+
+	spec.add_runtime_dependency "jekyll", ">= 3.0"
+  spec.add_runtime_dependency "liquid"
+  spec.add_runtime_dependency "tokenizer"
+  spec.add_runtime_dependency "stopwords-filter"
+  spec.add_runtime_dependency "fast-stemmer"
+  spec.add_runtime_dependency "pqueue"
+  spec.add_runtime_dependency "nmatrix"
+  spec.add_runtime_dependency "nmatrix-lapacke"
 end
