@@ -19,7 +19,7 @@ and [LSI](https://en.wikipedia.org/wiki/Latent_semantic_indexing).
 
 ## How to install
 
-Initialy you had to install the plugin manually, however the plugin is a
+Initially you had to install the plugin manually, however the plugin is a
 gem now - follow instructions to install the plugin:
 
 1. Install the gem `jekyll-related-posts`:
@@ -72,7 +72,7 @@ In your `_config.yml` file (under `related:`) you can configure:
 
 You can configure weights of words providing dictionary with them to
 `weights`. In example weight of `2` means for term frequency algorithm 
-that the word occured twice as much in the document as in reality.
+that the word occurred twice as much in the document as in reality.
 
 ## Benchmark
 
