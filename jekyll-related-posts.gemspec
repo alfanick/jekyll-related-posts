@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-related-posts"
-  spec.version       = "0.1.1"
+  spec.version       = "0.1.2"
   spec.authors       = ["Amadeusz Juskowiak"]
   spec.email         = ["juskowiak@amadeusz.me"]
   spec.summary       = %q{Proper related posts plugin for Jekyll - uses document correlation matrix on TF-IDF (optionally with Latent Semantic Indexing).}
@@ -29,7 +29,7 @@ Liquid template for each post is rendered and <related-posts /> is replaced with
 
 	spec.add_runtime_dependency "jekyll", "~> 3.0"
   spec.add_runtime_dependency "liquid", "~> 3.0"
-  spec.add_runtime_dependency "tokenizer", "~> 0.1"
+  spec.add_runtime_dependency "tokenizer", "~> 0.3"
   spec.add_runtime_dependency "stopwords-filter", "~> 0.3"
   spec.add_runtime_dependency "fast-stemmer", "~> 1.0"
   spec.add_runtime_dependency "pqueue", "~> 2.1"

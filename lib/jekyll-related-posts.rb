@@ -18,7 +18,7 @@ module Jekyll
     def initialize
       @posts = Array.new
       @keywords = Array.new
-      @tokenizer = Tokenizer::Tokenizer.new(:en)
+      @tokenizer = Tokenizer::WhitespaceTokenizer.new(:en)
       @stopwords_filter = Stopwords::Snowball::Filter.new('en')
     end
 
@@ -42,6 +42,7 @@ module Jekyll
 
       @posts.each do |post|
         filename = File.join(site.config['destination'], post[:url])
+        filename = File.join(filename, 'index.html') if File.directory? filename
         rendered = File.read(filename)
 
         output = template.render('related_posts' => related[post])
