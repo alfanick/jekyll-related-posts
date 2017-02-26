@@ -75,6 +75,7 @@ module Jekyll
     def find_releated(count = 5, min_score = -10.0, accuracy = 1.0)
       dc = document_correleation(accuracy)
       result = Hash.new
+      result_ids = Hash.new
       count = [count, @posts.size].min
 
       @posts.each_with_index do |post, index|
@@ -83,15 +84,19 @@ module Jekyll
         end
 
         result[post] = []
+        result_ids[post] = Set.new
         count.times do
           score, id = queue.pop
           break unless score
           begin
-            result[post] << {
-              'score' => score,
-              'url' => @posts[id][:url],
-              'title' => @posts[id][:title]
-            }
+            unless result_ids[post].include? id
+              result_ids[post].add(id)
+              result[post] << {
+                'score' => score,
+                'url' => @posts[id][:url],
+                'title' => @posts[id][:title]
+              }
+            end
           rescue
             break
           end
